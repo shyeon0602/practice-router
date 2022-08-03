@@ -20,6 +20,8 @@ const movies = () => {
             key={movie.id}
             style={({ isActive }) => {
               return {
+                //NavLink 사용하여 링크에서 사용하는 경로가 현재 라우트의 경로와 일치하는 경우 특정 CSS를 적용할 수 있음
+                //isActive가 적용될 때 글씨가 주황색으로 바뀜
                 color: isActive ? "#FF9E1B" : "",
               };
             }}
