@@ -1,17 +1,30 @@
-import React from 'react';
-import {Link, Outlet} from 'react-router-dom';
+import React from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 const Menubar = () => {
-    return (
-        <div>
-            <ul>
-                <li><Link to="/home">Home</Link></li>
-                <li><Link to="/movies">Movies</Link></li>
-            </ul>
+  const navigate = useNavigate();
+  const goHome = () => {
+    navigate("/");
+  };
 
-            <Outlet />
-        </div>
-    );
+  return (
+    <div>
+      <ul>
+        <li>
+          <Link to="/home">Home</Link>
+        </li>
+        <li>
+          <Link to="/movies">Movies</Link>
+        </li>
+      </ul>
+
+      <Outlet />
+
+      <button onClick={goHome} type="button">
+        홈으로 돌아가기
+      </button>
+    </div>
+  );
 };
 
 export default Menubar;

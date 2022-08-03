@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 import { getMovies } from "../movie_data";
 {
   /* ../는 상위 디렉토리로 이동을 의미
@@ -15,13 +15,17 @@ const movies = () => {
       <h1>넷플릭스 영화 추천 목록</h1>
       <div>
         {movies.map((movie) => (
-          <Link
+          <NavLink
             to={`/movies/${movie.id}`}
             key={movie.id}
-            style={{ display: "block" }}
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#FF9E1B" : "",
+              };
+            }}
           >
-            {movie.title}
-          </Link>
+            <p>{movie.title}</p>
+          </NavLink>
         ))}
       </div>
       <hr />
